@@ -16,7 +16,6 @@ class App extends Component {
     this.state.number = event.target['number'].value;
         this.state.contacts.map((mi)=>{
         if (mi.namePhone.includes(this.state.name)) {
-          console.log(this.state);
           return index = true
         }
         else {
