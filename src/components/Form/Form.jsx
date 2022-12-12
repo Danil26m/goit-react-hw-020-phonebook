@@ -22,7 +22,7 @@ render(){
                     required
                 />
                 <br/>
-                <button type="submit">wwq</button>
+                <button type="submit">Add contacts</button>
             </form>
             
         </div>

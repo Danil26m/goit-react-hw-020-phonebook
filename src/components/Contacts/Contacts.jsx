@@ -1,23 +1,23 @@
 import { Component } from "react";
 
 class Contacts extends Component{ 
-    stat={
+    state={
         filter: '',
     }
 addTar=(even)=>{
    
     
     const r = even.target.value;
-    this.stat.filter = r;
-    this.setStat({filter: r});
+    this.state.filter = r;
+    this.setState({filter: r});
 }
 
 filtered=()=>{
     const{contacts} = this.props.cont; 
-        if (this.stat.filter) {
+        if (this.state.filter) {
          return(
                 contacts.map((m,j)=>
-                m.namePhone.includes(this.stat.filter)?
+                m.namePhone.includes(this.state.filter)?
                 <li key={j}>
                     <p>{m.namePhone}: {m.numberPhone}</p>
                     <button id={j} type="button" onClick={this.delete} >delete</button>
@@ -37,7 +37,7 @@ filtered=()=>{
 }
 delete=(even)=>{
     const{contacts} = this.props.cont;
-    this.setState({contacts : contacts.filter((cont)=> cont.id !== even.target.id)})
+    this.setStatee({contacts : contacts.filter((cont)=> cont.id !== even.target.id)})
     contacts.splice(even.target.id);
 }
 

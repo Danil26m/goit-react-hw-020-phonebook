@@ -49,7 +49,7 @@ class App extends Component {
       <Form submit={this.nameContact} />
       {this.state.contacts.length?
       <Contacts cont={this.state} />
-      :"rr"}
+      :""}
       
     </div>
     
