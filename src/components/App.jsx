@@ -4,11 +4,15 @@ import Contacts from "./Contacts/Contacts";
 let index = false;
 let k = 0;
 class App extends Component {
-  state = {
+  constructor(){
+    super();
+    this.state = {
     contacts: [],
     name: '',
     number: '',
   }
+  }
+  
   nameContact =(event)=>{
     
     event.preventDefault();

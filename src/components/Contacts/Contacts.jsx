@@ -8,7 +8,7 @@ addTar=(even)=>{
    
     
     const r = even.target.value;
-    this.state.filter = r;
+    // this.state.filter = r;
     this.setState({filter: r});
 }
 
