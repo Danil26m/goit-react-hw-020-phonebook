@@ -14,13 +14,8 @@ class App extends Component {
   }
   
   nameContact =(event)=>{
-    
     event.preventDefault();
-    // this.state.name = event.target['name'].value;
-   
-    // this.state.number = event.target['number'].value;
-   
-        
+        console.log(this.state.name);
         this.state.contacts.map((mi)=>{
         if (mi.namePhone.includes(event.target['name'].value)) {
           return index = true
@@ -31,11 +26,13 @@ class App extends Component {
         
       })
       if (!index) {
-        this.setState({name: event.target['name'].value})
-        this.setState({name: event.target['number'].value})
+        console.log(this.state);
         this.setState((prev) => ({
-          contacts : [...prev.contacts,{id: k++,namePhone: this.state.name, numberPhone: this.state.number}]
+          contacts : [...prev.contacts,{id: k++,namePhone: event.target['name'].value, numberPhone: event.target['number'].value}]
         }))
+        this.setState({name: event.target['number'].value})
+        this.setState({name: event.target['name'].value})
+        
       }
       else {
         alert(`${this.state.contacts[this.state.contacts.length-1].namePhone} is already contact`);
