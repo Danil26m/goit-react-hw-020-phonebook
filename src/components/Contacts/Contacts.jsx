@@ -38,6 +38,7 @@ filtered=()=>{
 delete=(even)=>{
     const{contacts} = this.props.cont;
     this.setStatee({contacts : contacts.filter((cont)=> cont.id !== even.target.id)})
+    this.setState({contacts : contacts.filter((cont)=> cont.id !== even.target.id)})
     contacts.splice(even.target.id);
 }
 
