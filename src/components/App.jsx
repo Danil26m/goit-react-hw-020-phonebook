@@ -1,6 +1,7 @@
 import { Component } from "react"
 import Form from "./Form/Form";
 import Contacts from "./Contacts/Contacts";
+
 let index = false;
 let k = 0;
 class App extends Component {
@@ -8,16 +9,12 @@ class App extends Component {
     super();
     this.state = {
     contacts: [],
-    name: '',
-    number: '',
   }
   }
-  
   nameContact =(event)=>{
-    event.preventDefault();
-        console.log(this.state.name);
+    const{name,number} = event;
         this.state.contacts.map((mi)=>{
-        if (mi.namePhone.includes(event.target['name'].value)) {
+        if (mi.namePhone.includes(name)) {
           return index = true
         }
         else {
@@ -26,37 +23,34 @@ class App extends Component {
         
       })
       if (!index) {
-        console.log(this.state);
         this.setState((prev) => ({
-          contacts : [...prev.contacts,{id: k++,namePhone: event.target['name'].value, numberPhone: event.target['number'].value}]
+          contacts : [...prev.contacts,{id: k++,namePhone: name, numberPhone:number}]
         }))
-        this.setState({name: event.target['number'].value})
-        this.setState({name: event.target['name'].value})
-        
       }
       else {
         alert(`${this.state.contacts[this.state.contacts.length-1].namePhone} is already contact`);
       }
-      
+     
     
   }
   render(){
-    
-    
     return (
     <div
       style={{
         display: 'flex',
         justifyContent: 'center',
+        flexDirection: 'column',
         alignItems: 'center',
         color: '#010101'
       }}
     >
-      <Form submit={this.nameContact} />
-      {this.state.contacts.length?
+      <h1>Phonebook</h1>
+      <Form submit={this.nameContact}/>
+
+  <h2>Contacts</h2>
+  {this.state.contacts.length?
       <Contacts cont={this.state} />
       :""}
-      
     </div>
     
   );

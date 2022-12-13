@@ -1,14 +1,13 @@
 import { Component } from "react";
-
+import  PropTypes  from "prop-types";
+let index = false;
+let k = 0;
 class Contacts extends Component{ 
     state={
         filter: '',
     }
 addTar=(even)=>{
-   
-    
     const r = even.target.value;
-    // this.state.filter = r;
     this.setState({filter: r});
 }
 
@@ -17,7 +16,7 @@ filtered=()=>{
         if (this.state.filter) {
          return(
                 contacts.map((m,j)=>
-                m.namePhone.includes(this.state.filter)?
+                m.namePhone.toLowerCase().includes(this.state.filter.toLowerCase())?
                 <li key={j}>
                     <p>{m.namePhone}: {m.numberPhone}</p>
                     <button id={j} type="button" onClick={this.delete} >delete</button>
@@ -44,11 +43,9 @@ delete=(even)=>{
 render(){
     return(
         <div>
-            <h2>Contacts</h2>
             <ul>
                 { this.filtered()}
             </ul>
-            
             <h2>Find firs name</h2>
            <input type="text" 
             name="firstName"
@@ -57,5 +54,8 @@ render(){
         </div>
     )
 }
+}
+Contacts.prop = {
+  cont: PropTypes.shape().isRequired,
 }
 export default Contacts;
