@@ -1,7 +1,5 @@
 import { Component } from "react";
 import  PropTypes  from "prop-types";
-let index = false;
-let k = 0;
 class Contacts extends Component{ 
     state={
         filter: '',
