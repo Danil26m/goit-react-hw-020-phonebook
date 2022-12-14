@@ -7,13 +7,15 @@ class Form extends Component{
         number: '',
     }
     handelInput=(even)=>{
+        const{name,value}= even.currentTarget
         this.setState({
-            [even.currentTarget.name] : even.currentTarget.value,
-            [even.currentTarget.number]: even.currentTarget.value})
+            [name] : value
+            // [number]: value
+        })
     }
     handelSubmit= even=>{
         even.preventDefault();
-        this.props.submit(this.state)
+        this.props.submit(this.state);
     }
 render(){
    
@@ -49,7 +51,7 @@ render(){
     );
 }
 }
-Form.prop ={
+Form.propTypes ={
     submit: PropTypes.func.isRequired,
 }
 export default Form;
