@@ -10,7 +10,6 @@ class Form extends Component{
         const{name,value}= even.currentTarget
         this.setState({
             [name] : value
-            // [number]: value
         })
     }
     handelSubmit= even=>{

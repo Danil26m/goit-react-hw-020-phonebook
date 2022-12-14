@@ -23,6 +23,8 @@ render(){
 }
 }
 Contacts.propTypes = {
-  cont: PropTypes.shape().isRequired,
+  cont: PropTypes.array,
+  delete: PropTypes.func,
+  add: PropTypes.func
 }
 export default Contacts;
